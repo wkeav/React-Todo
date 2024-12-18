@@ -25,11 +25,19 @@ const handleKeySave = (e,value) => {
 
 //  Handle clicking outside (blur)
 const handleBlur = (value) => {
-    setIsEditing(false);
+    props.editTodo(
+        props.rowNumber,
+        value === 'Description' ? editDescription : props.rowDescription,
+        value === 'Assigned' ? editAssigned : props.rowAssigned
+    );
+    setIsEditing(false)
 };
 
 return (
-    <tr>
+    <tr style={{
+        textDecoration: props.isComplete ? 'line-through' : 'none',
+        color: props.isComplete ? '#888' : 'inherit'}}
+        >
         <td>
             <div className="form-check">
             <input 
@@ -48,8 +56,8 @@ return (
                     className="form-control"
                     value={editDescription}
                     onChange={(e) => setEditDescription(e.target.value)}
-                    onKeyDown={(e) => handleKeySave(e, 'Description')}
-                    onBlur={handleBlur}
+                    onBlur={() => handleBlur('Description')}
+            
                 />
             ) : (props.rowDescription)}
         </td>
@@ -60,8 +68,7 @@ return (
                     className="form-control"
                     value={editAssigned}
                     onChange={(e) => setEditAssigned(e.target.value)}
-                    onKeyDown={(e) => handleKeySave(e, 'Assigned')}
-                    onBlur={handleBlur}
+                    onBlur={() => handleBlur('Assigned')}
                 />
             ): (props.rowAssigned)}</td>
     </tr>
