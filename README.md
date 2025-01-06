@@ -11,3 +11,7 @@ https://github.com/user-attachments/assets/1d69c18d-872b-4e6a-81d2-f418e894738a
 - Edit task: User can edit their task by clicking on the task and start updating it
 - Delete task: User can delete tasks on their Todo list
 - Mark task as completed: The user can mark tasks are done
+
+## Contact 
+Author: Astra Nguyen
+Linkedin: https://www.linkedin.com/in/astra-nguyen-40b024259/
